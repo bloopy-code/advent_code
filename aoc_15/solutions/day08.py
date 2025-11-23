@@ -2,7 +2,7 @@
 from utils.aoc_utils import input_for_day, report_results
 
 
-EXAMPLE = []
+EXAMPLE: list = []
 DATA = input_for_day(8)
 
 
