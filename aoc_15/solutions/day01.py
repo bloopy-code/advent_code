@@ -1,4 +1,4 @@
-"""Day 1 - Title Goes Here"""
+"""Day 1 - Not Quite Lisp"""
 
 from itertools import accumulate
 from utils.aoc_utils import input_for_day, report_results

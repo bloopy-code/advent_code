@@ -1,29 +1,31 @@
 """Day 8 - Title Goes Here"""
 
-from utils.aoc_utils import input_for_day, report_results
+from typing import Any
+from utils.aoc_utils import input_for_day, report_results, AoCResult
 
 
 EXAMPLE: list = []
 DATA = input_for_day(8)
 
 
-def helperfunction(data):
-    return False
+def helperfunction(data: Any) -> None:
+    return None
 
 
 @report_results
-def solveday(data):
-    p1 = ""
-    p2 = ""
+def solveday(data: Any) -> AoCResult:
+    p1: int = 0
+    p2: int = 0
     return p1, p2
 
 
-expected_test_results = ""
+expected_test_results: AoCResult = (0, 0)
 
 
-def tests(test_input):
+def tests(test_input: Any) -> None:
     p1, p2 = solveday(test_input)
     assert (p1, p2) == expected_test_results
+    print("☑️ Tests passed!")
 
 
 if __name__ == "__main__":

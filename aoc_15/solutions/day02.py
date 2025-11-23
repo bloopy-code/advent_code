@@ -1,4 +1,4 @@
-"""Day 2 - Title Goes Here"""
+"""Day 2 - I Was Told There Would Be No Math"""
 
 from utils.aoc_utils import input_for_day, report_results
 
