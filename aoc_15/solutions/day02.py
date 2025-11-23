@@ -21,8 +21,8 @@ def wrapping_paper(dim: str) -> int:
             smallest side extra wrapping
     """
     length, w, h = parse_dims(dim)
-    sqft = (2*length*w + 2*w*h + 2*h*length)
-    smallest_side = min([length*w, w*h, h*length])
+    sqft: int = (2*length*w + 2*w*h + 2*h*length)
+    smallest_side: int = min([length*w, w*h, h*length])
     return sqft + smallest_side
 
 
@@ -36,8 +36,8 @@ def ribbon(dim: str) -> int:
         int: ribbon length including bow
     """
     length, w, h = parse_dims(dim)
-    shdst = 2 * sum(sorted((length, w, h))[:2])
-    bow = length * w * h
+    shdst: int = 2 * sum(sorted((length, w, h))[:2])
+    bow: int = length * w * h
     return shdst + bow
 
 
@@ -47,8 +47,8 @@ def parse_dims(dims: str) -> map[int]:
 
 @report_results
 def solveday(data) -> tuple[int, int]:
-    p1 = sum(wrapping_paper(x) for x in data)
-    p2 = sum(ribbon(x) for x in data)
+    p1: int = sum(wrapping_paper(x) for x in data)
+    p2: int = sum(ribbon(x) for x in data)
     return p1, p2
 
 

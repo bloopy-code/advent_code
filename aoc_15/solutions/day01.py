@@ -12,7 +12,7 @@ EXAMPLE: list[str] = [
 DATA: str = input_for_day(1, 2015)
 
 
-def helperfunction(data) -> accumulate[int]:
+def helperfunction(data: str) -> accumulate[int]:
     floors: accumulate[int] = accumulate(
         1 if x == '(' else -1 for x in data
     )
@@ -20,17 +20,17 @@ def helperfunction(data) -> accumulate[int]:
 
 
 @report_results
-def solveday(data) -> tuple[int, int]:
+def solveday(data: str) -> tuple[int, int]:
     p1: int = sum(1 if x == '(' else -1 for x in data)
     p2: int = list(helperfunction(data)).index(-1)
     return p1, p2+1
 
 
-expected_test_results = (3, 1)
+expected_test_results: tuple[int, int] = (3, 1)
 
 
 @report_results
-def tests(test_input):
+def tests(test_input: str) -> None:
     p1, p2 = solveday(test_input)
     assert (p1, p2) == expected_test_results
     print("☑️ Tests passed!")
