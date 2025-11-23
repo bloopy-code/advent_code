@@ -68,9 +68,7 @@ def create_day(year: int, day: int, root: Path | None = None) -> None:
     input_file = input_dir / f"day{day_str}.txt"
 
     if not code_file.exists():
-        code_file.write_text(
-            TEMPLATE_CODE.format(day=day, year=year),
-            encoding="utf-8")
+        code_file.write_text(TEMPLATE_CODE.format(day=day, year=year), encoding="utf-8")
         print(f"Created {code_file}")
     else:
         print(f"Code file {code_file} already exists, skipping.")
@@ -82,7 +80,7 @@ def create_day(year: int, day: int, root: Path | None = None) -> None:
         print(f"Input file {input_file} already exists, skipping.")
 
 
-def create_days(year: int, days) -> None:
+def create_days(year: int, days: list[int] | range) -> None:
     for day in days:
         create_day(year, day)
 
@@ -108,7 +106,7 @@ def parse_args() -> argparse.Namespace:
         help=(
             "Optional end day (1–25, inclusive)."
             "If given, all days from day..end_day are created."
-        )
+        ),
     )
 
     args = parser.parse_args()

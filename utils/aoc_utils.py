@@ -1,4 +1,5 @@
 """Usefulish helper functions"""
+
 import time
 import functools
 from pathlib import Path
@@ -27,6 +28,7 @@ def input_for_day(day: int, year: int | None = None, ff: str = "read") -> Any:
     if year is None:
         # Look at the current script's path
         import inspect
+
         caller_path = Path(inspect.stack()[1].filename)
         # Search for a folder like 'year2015' in the parent directories
         for parent in caller_path.parents:
@@ -64,6 +66,7 @@ def report_results(func):
     """Decorator to time a function and print
     Part 1 and Part 2 results nicely.
     """
+
     @functools.wraps(func)
     def wrapper(*args, **kwargs):
         start_time = time.time()
@@ -83,4 +86,5 @@ def report_results(func):
         print("===================")
 
         return results
+
     return wrapper

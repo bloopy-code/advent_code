@@ -1,4 +1,5 @@
 """Day 9 - Title Goes Here"""
+
 from utils.aoc_utils import input_for_day, report_results
 
 
@@ -12,12 +13,12 @@ def helperfunction(data):
 
 @report_results
 def solveday(data):
-    p1 = ''
-    p2 = ''
+    p1 = ""
+    p2 = ""
     return p1, p2
 
 
-expected_test_results = ''
+expected_test_results = ""
 
 
 def tests(test_input):

@@ -1,10 +1,9 @@
 """Day 2 - Title Goes Here"""
+
 from utils.aoc_utils import input_for_day, report_results
 
 
-EXAMPLE: list[str] = [
-    "2x3x4", "1x1x10"
-]
+EXAMPLE: list[str] = ["2x3x4", "1x1x10"]
 DATA = input_for_day(2, 2015, ff="lists")
 
 
@@ -21,8 +20,8 @@ def wrapping_paper(dim: str) -> int:
             smallest side extra wrapping
     """
     length, w, h = parse_dims(dim)
-    sqft: int = (2*length*w + 2*w*h + 2*h*length)
-    smallest_side: int = min([length*w, w*h, h*length])
+    sqft: int = 2 * length * w + 2 * w * h + 2 * h * length
+    smallest_side: int = min([length * w, w * h, h * length])
     return sqft + smallest_side
 
 
@@ -42,7 +41,7 @@ def ribbon(dim: str) -> int:
 
 
 def parse_dims(dims: str) -> map[int]:
-    return map(int, dims.split('x'))
+    return map(int, dims.split("x"))
 
 
 @report_results
