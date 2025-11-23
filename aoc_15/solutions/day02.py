@@ -45,7 +45,7 @@ def parse_dims(dims: str) -> map[int]:
 
 
 @report_results
-def solveday(data) -> tuple[int, int]:
+def solveday(data: list[str]) -> tuple[int, int]:
     p1: int = sum(wrapping_paper(x) for x in data)
     p2: int = sum(ribbon(x) for x in data)
     return p1, p2
