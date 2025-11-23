@@ -1,0 +1,8 @@
+line-length = 88
+target-version = "py314"
+
+[lint]
+
+# same as default for now - will add to this as go along
+select = ["E", "F", "W"]
+ignore = []
