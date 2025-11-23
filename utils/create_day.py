@@ -105,7 +105,10 @@ def parse_args() -> argparse.Namespace:
         "end_day",
         type=int,
         nargs="?",
-        help="Optional end day (1–25, inclusive). If given, all days from day..end_day are created.",
+        help=(
+            "Optional end day (1–25, inclusive)."
+            "If given, all days from day..end_day are created."
+        )
     )
 
     args = parser.parse_args()
