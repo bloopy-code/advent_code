@@ -7,25 +7,38 @@ on:
     branches: [ "main" ]
 
 jobs:
-  lint-and-typecheck:
+  lint-typecheck:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out code
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Set up Python
-        uses: actions/setup-python@v5
+      - name: Install uv
+        uses: astral-sh/setup-uv@v3
+
+      - name: Cache uv environments
+        uses: actions/cache@v3
         with:
-          python-version: "3.14"
+          path: ~/.cache/uv
+          key: uv-${{ runner.os }}-${{ hashFiles('pyproject.toml') }}
+          restore-keys: |
+            uv-${{ runner.os }}-
 
-      - name: Install tools
-        run: |
-          python -m pip install --upgrade pip
-          pip install ruff mypy
+      - name: Install tools with uv
+        run: uv tool install ruff mypy
 
-      - name: Run ruff
+      - name: Ruff lint
         run: ruff check .
 
-      - name: Run mypy
+      - name: Ruff format check
+        run: ruff format --check .
+
+      - name: Mypy type checking
         run: mypy .
+
+      - name: Markdown lint
+        uses: DavidAnson/markdownlint-cli2-action@v15
+        with:
+          globs: |
+            **/*.md

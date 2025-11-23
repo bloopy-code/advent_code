@@ -5,3 +5,22 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = []
+
+[tool.ruff]
+line-length = 88
+target-version = "py314"
+
+[tool.ruff.lint]
+select = ["E", "F", "W"]
+ignore = []
+
+[tool.mypy]
+python_version = "3.14"
+ignore_missing_imports = true
+pretty = true
+
+# stricter mypy rules for utils
+[mypy-utils.*]
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+warn_unused_ignores = true
