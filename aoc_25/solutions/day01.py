@@ -1,4 +1,5 @@
 """Day 1 - Secret Entrance"""
+
 from typing import Any
 from utils.aoc_utils import report_results, AoCResult, input_for_day
 
@@ -13,9 +14,9 @@ EXAMPLE: list[str] = [
     "L1",
     "L99",
     "R14",
-    "L82"
+    "L82",
 ]
-DATA = input_for_day(1, 2025, ff='list')
+DATA = input_for_day(1, 2025, ff="list")
 
 
 def parse_input(data: list[str]) -> tuple[int, int]:
@@ -28,26 +29,29 @@ def parse_input(data: list[str]) -> tuple[int, int]:
         tuple[int, int]: land on zero, click over zero.
     """
     zero_counter: int = 0
-    # click_over_count: int = 0
+    click_over_count: int = 0
     start: int = 50
+    pos: int = 50
 
     for x in data:
         # assuming data will always be in a valid format
         direction, num = x[0], int(x[1:])
-        # print(direction, num)
+        prev_pos: int = pos
 
-        if direction == 'L':
-            start -= num
+        if direction == "L":
+            pos -= num
+            click_over_count += (-pos) // 100 - (-prev_pos) // 100
+
         else:
-            start += num
+            pos += num
+            click_over_count += pos // 100 - prev_pos // 100
 
-        start %= 100
-
+        start = pos % 100
         if start == 0:
             # lands on zero following a turn
             zero_counter += 1
 
-    return zero_counter, 0
+    return zero_counter, click_over_count
 
 
 @report_results
@@ -56,7 +60,7 @@ def solveday(data: list[str]) -> AoCResult:
     return p1, p2
 
 
-expected_test_results: AoCResult = (3, 0)
+expected_test_results: AoCResult = (3, 6)
 
 
 def tests(test_input: Any) -> None:
