@@ -14,9 +14,9 @@ EXAMPLE_LISTS: list[str] = [
     "987654321111111",
     "811111111111119",
     "234234234234278",
-    "818181911112111"
+    "818181911112111",
 ]
-INPUT_DATA: list[str] = input_for_day(3, 2025, ff='list')
+INPUT_DATA: list[str] = input_for_day(3, 2025, ff="list")
 
 # Hmm, actually I think I want a list of lists... who doesn't?
 DATA: ListsOfBatteryLists = [list(map(int, list(x))) for x in INPUT_DATA]
@@ -39,9 +39,9 @@ def part1(data: ListsOfBatteryLists) -> int:
         current_highest: int = 0
 
         # Gotta sliiiide through that list like you're sliding into some DMs ;)
-        for i in range(len(x)-1):
+        for i in range(len(x) - 1):
             first_battery: int = x[i]
-            the_rest: list[int] = x[i+1:]  # the rest of battery gang, yadayada
+            the_rest: list[int] = x[i + 1 :]  # the rest of battery gang, yadayada
 
             biggest_of_the_rest: int = max(the_rest)  # Bigger IS better.
 
@@ -83,15 +83,15 @@ def part2(data: ListsOfBatteryLists) -> int:
 
             # peep the catchy as heck, short,
             # descriptive, easy to remember variable names ...
-            highest_num_first_block: int = max(x[start_idx:first_block_len+1])
+            highest_num_first_block: int = max(x[start_idx : first_block_len + 1])
             biggest_batteries.append(highest_num_first_block)
             highest_num_idx: int = x.index(
-                highest_num_first_block, start_idx, first_block_len+1
+                highest_num_first_block, start_idx, first_block_len + 1
             )
-            start_idx = highest_num_idx+1
+            start_idx = highest_num_idx + 1
             batteries_needed -= 1  # YEET 🔋
 
-        highest: str = ''.join(list(map(str, biggest_batteries)))
+        highest: str = "".join(list(map(str, biggest_batteries)))
         # bigger, better, stronger.
         total_p2_joltage += int(highest)
     return total_p2_joltage
