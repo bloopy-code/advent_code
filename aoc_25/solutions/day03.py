@@ -1,7 +1,7 @@
 """Day 3 - Title Goes Here"""
 
 from typing import Any
-from utils.aoc_utils import report_results,input_for_day, AoCResult
+from utils.aoc_utils import report_results, input_for_day, AoCResult
 from rich.progress import track
 
 # Custom typing - can I have a medal for Best Lil Coder? ⭐
@@ -9,7 +9,7 @@ from rich.progress import track
 # (Please don't take away my star)
 ListsOfBatteryLists = list[list[int]]
 
-# I gotta practise on the examples given because the brain cells need warming up.
+# I gotta practise on the examples given because the brain cells need warming.
 EXAMPLE_LISTS: list[str] = [
     "987654321111111",
     "811111111111119",
@@ -41,17 +41,17 @@ def part1(data: ListsOfBatteryLists) -> int:
         # Gotta sliiiide through that list like you're sliding into some DMs ;)
         for i in range(len(x)-1):
             first_battery: int = x[i]
-            the_rest: list[int] = x[i+1:]  # the rest of the battery gang, yadayada
+            the_rest: list[int] = x[i+1:]  # the rest of battery gang, yadayada
 
             biggest_of_the_rest: int = max(the_rest)  # Bigger IS better.
 
-            # it dawned on me here, that I could have just done some list joining.
-            # but I like to be faced with my mistakes to remind me of my humble roots
-            # and so I can laugh at myself in a years time.
+            # it dawned on me, that I could have just done some list joining.
+            # but I like to be faced with my mistakes to remind me of
+            # my humble roots and so I can laugh at myself in a years time.
             new_num: int = int(str(first_battery) + str(biggest_of_the_rest))
 
             if new_num > current_highest:
-                current_highest: int = new_num  # HIGHER AND HIIIIGHER!
+                current_highest = new_num  # HIGHER AND HIIIIGHER!
 
         p1_total_joltage += current_highest
     return p1_total_joltage
@@ -76,18 +76,23 @@ def part2(data: ListsOfBatteryLists) -> int:
         batteries_needed: int = 12
 
         while batteries_needed > 0:
-            # I figure, if you need 12 batteries, there's only so far fwd you can go in a battery
-            # and still get 12? So you gotta work out where the first block 'ends'?
+            # I figure, if you need 12 batteries,
+            # there's only so far fwd you can go in a battery and still get 12?
+            # So you gotta work out where the first block 'ends'?
             first_block_len: int = len(x) - batteries_needed
 
-            # peep the catchy as heck, short, descriptive, easy to remember variable names ...
+            # peep the catchy as heck, short,
+            # descriptive, easy to remember variable names ...
             highest_num_first_block: int = max(x[start_idx:first_block_len+1])
             biggest_batteries.append(highest_num_first_block)
-            highest_num_idx: int = x.index(highest_num_first_block, start_idx, first_block_len+1)
+            highest_num_idx: int = x.index(
+                highest_num_first_block, start_idx, first_block_len+1
+            )
             start_idx = highest_num_idx+1
             batteries_needed -= 1  # YEET 🔋
 
-        highest: str = ''.join(list(map(str, biggest_batteries)))  # bigger, better, stronger.
+        highest: str = ''.join(list(map(str, biggest_batteries)))
+        # bigger, better, stronger.
         total_p2_joltage += int(highest)
     return total_p2_joltage
 
