@@ -41,7 +41,7 @@ def part1(data: ListsOfBatteryLists) -> int:
         # Gotta sliiiide through that list like you're sliding into some DMs ;)
         for i in range(len(x) - 1):
             first_battery: int = x[i]
-            the_rest: list[int] = x[i + 1 :]  # the rest of battery gang, yadayada
+            the_rest: list[int] = x[i + 1 :]  # the rest of batterygang,yadayada
 
             biggest_of_the_rest: int = max(the_rest)  # Bigger IS better.
 

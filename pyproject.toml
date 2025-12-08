@@ -16,12 +16,13 @@ target-version = "py314"
 
 [tool.ruff.lint]
 select = ["E", "F", "W"]
-ignore = ["E501"]
+ignore = ["E501", "E203", "E211"]
 
 [tool.mypy]
 python_version = "3.14"
 ignore_missing_imports = true
 pretty = true
+
 
 disallow_untyped_defs = false
 disallow_incomplete_defs = true
