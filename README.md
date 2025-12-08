@@ -30,4 +30,3 @@ Pre-Challenge Goals:
 |Day 1: Not Quite Lisp|☑️|⭐⭐||Python|
 |Day 2: I Was Told There Would Be No Math|☑️|⭐⭐||Python|
 |Day 3: Perfectly Spherical Houses in a Vacuum|☑️|⭐⭐||Python|
-

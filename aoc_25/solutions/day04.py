@@ -1,4 +1,4 @@
-"""Day 4 - Title Goes Here"""
+"""Day 4 - Printing Department"""
 
 from typing import Any
 from utils.aoc_utils import report_results, AoCResult, input_for_day
