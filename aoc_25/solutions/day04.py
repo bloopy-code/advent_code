@@ -94,7 +94,7 @@ def solve_p1(data: LooRollGrid) -> int:
 
 
 def solve_p2(data: LooRollGrid) -> int:
-    """Recursively search for valid coords,
+    """Search for valid coords,
     add to coordinate list. Replace those coords with 'x',
     then repeat until no more can be replaced.
 
